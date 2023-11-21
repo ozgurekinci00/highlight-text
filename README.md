@@ -1,5 +1,5 @@
 # Highlight Text
-## Chrome extension to highlight key sentences from any wall-of-text
+## Chrome extension to highlight key sentences in any wall-of-text
 
 # Setup
 - Go to `chrome://extensions`
