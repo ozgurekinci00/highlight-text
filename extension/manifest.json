@@ -1,8 +1,8 @@
 {
     "manifest_version": 2,
-    "name": "Keyword Underliner",
+    "name": "Highlight Text",
     "version": "1.0",
-    "description": "A Chrome extension to underline specific keywords on a page.",
+    "description": "A Chrome extension to highlight key sentences in any wall-of-text",
     "permissions": ["activeTab", "https://*/*", "http://*/*"],
     "content_scripts": [
       {

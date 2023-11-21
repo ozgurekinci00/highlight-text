@@ -23,15 +23,12 @@ app.listen(port, () => {
 
 app.post("/highlight", async (req, res) => {
   const { text } = req.body;
-  console.log("CONTENT HIGHLIGHT", req.body);
   if (!text.trim()) {
-    console.log("Empty or whitespace-only text");
     res.status(400).json({ message: "Empty or whitespace-only text" });
     return;
   }
   try {
     const result = await generateSentences(text);
-    console.log("RESULT", result);
     res.json({ result });
   } catch (err) {
     console.error(err);
@@ -40,7 +37,6 @@ app.post("/highlight", async (req, res) => {
 });
 
 const generateSentences = async (text) => {
-  console.log("TEXT INPUT", text);
   try {
     const response = await axios.post(
       "https://api.openai.com/v1/chat/completions",
@@ -55,16 +51,12 @@ const generateSentences = async (text) => {
       },
       {
         headers: {
-          Authorization:
-            `Bearer ${YOUR_OPENAI_KEY}`,
+          Authorization: `Bearer ${YOUR_OPENAI_KEY}`,
         },
       }
     );
-    console.log("RESPONSE DATAaa", response.data);
-    console.log("MESSAGES", response.data.choices[0].message);
     return response.data.choices[0].message.content;
   } catch (err) {
-    console.log("ERRORRR???");
     console.error(err);
   }
 };
